@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>d3 samples runner</title>
+
+    <style>
+        svg {
+            overflow: hidden; /* IE fix */
+        }
+
+        div.page {
+            margin: 50px auto;
+            width: 700px;
+        }
+
+        .canvas {
+            background: #F5F5F5;
+        }
+
+        .root-node circle {
+            fill: #B25C3D;
+            stroke: #B25C3D;
+            stroke-width: 1px;
+        }
+
+        .child-node text {
+          font: 20px sans-serif;
+          fill: #ffffff;
+        }
+
+        .child-node circle {
+            fill: #F18E18;
+            stroke: #B25C3D;
+            stroke-width: 1px;
+        }
+
+        .child-node-link {
+            stroke: #B25C3D;
+            stroke-width: 1px;
+        }
+
+        circle:hover {
+            stroke-width: 2px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="page">
+        <div id="circles">
+            <svg></svg>
+        </div>
+    </div>
+
+    <script src="d3.min.js" charset="utf-8"></script>
+        
+    <!-- prepare main area -->
+    <script type="text/javascript">
+        (function(){
+            var width = 700;
+            var height = 700;
+
+            var svg = d3.select("#circles svg");
+            svg.attr({
+                    width: width,
+                    height: height,
+                    class: "canvas"
+                })
+                .append("g");
+        })();
+    </script>
+
+    <script type="text/javascript">
+        (function(){
+            var width = 700;
+            var height = 700;
+            
+            var svg = d3.select("#circles svg g")/*.call(zoom);*/
+            
+            var nodesCount = 20;
+            var alfa = 2*Math.PI/nodesCount;
+            var radius = 200;
+            var x0 = width/2;
+            var y0 = height/2;
+
+            var nodes = [];
+            var links = [];
+
+            d3.range(nodesCount).forEach(function(point, i) {
+                var x = radius*Math.cos(i*alfa);
+                var y = radius*Math.sin(i*alfa);
+                x = x0 + x;
+                y = y0 - y;
+
+                nodes.push({ x: x, y: y, name: i });
+                links.push({ "target": i + 1, "source": 0 });
+            });
+
+            var centerNode = { "x": x0, "y": y0, name: "root" };
+            nodes.unshift(centerNode);
+
+            var link = svg.selectAll(".child-node-link")
+                .data(links)
+                .enter()
+                .append("line")
+                .attr({
+                    class: "child-node-link",
+                    "x1": function(d) { return nodes[d.source].x; },
+                    "y1": function(d) { return nodes[d.source].y; },
+                    "x2": function(d) { return nodes[d.target].x; },
+                    "y2": function(d) { return nodes[d.target].y; },
+                    "opacity": 0
+                });
+
+            var nodeWrapper = svg.selectAll(".child-node")
+                .data(nodes)
+                .enter()
+                .append("g")
+                .attr({
+                    class: function(d, i) { return i === 0 ? "root-node" : "child-node"; },
+                })
+                .attr("transform", function(d){ return "translate("+ d.x +"," + d.y + ")" });
+
+            nodeWrapper.append("title")
+              .text(function(d) { return d.name; });
+            
+            var node = nodeWrapper.append("circle")
+                .attr({
+                    "r": 15,
+                    "opacity": 0
+                });
+
+            link.transition()
+                .delay(200)
+                .duration(750)
+                .attr({
+                    "opacity": 1
+                });
+
+            node.transition()
+                .delay(200)
+                .duration(750)
+                .attr({
+                    "r": 30,
+                    "opacity": 1
+                });
+        })();
+    </script>
+</body>
+</html>
