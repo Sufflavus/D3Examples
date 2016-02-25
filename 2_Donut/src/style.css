@@ -1,0 +1,9 @@
+svg {
+    overflow: hidden; /* IE fix */
+}
+
+div.page {
+    width: 800px;
+    margin: 50px auto;
+    border: 1px solid #F5F5F5;
+}

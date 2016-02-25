@@ -1,0 +1,38 @@
+svg {
+    overflow: hidden; /* IE fix */
+}
+
+div.page {
+    margin: 50px auto;
+    width: 700px;
+}
+
+.canvas {
+    background: #F5F5F5;
+}
+
+.root-node circle {
+    fill: #B25C3D;
+    stroke: #B25C3D;
+    stroke-width: 1px;
+}
+
+.child-node text {
+  font: 20px sans-serif;
+  fill: #ffffff;
+}
+
+.child-node circle {
+    fill: #F18E18;
+    stroke: #B25C3D;
+    stroke-width: 1px;
+}
+
+.child-node-link {
+    stroke: #B25C3D;
+    stroke-width: 1px;
+}
+
+circle:hover {
+    stroke-width: 2px;
+}
