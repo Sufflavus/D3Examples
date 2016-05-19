@@ -7,3 +7,7 @@
 ## 2. Draw circles inside a donut
 
 ![200 circles](https://github.com/Sufflavus/D3Examples/blob/master/2_Donut/results/200.png)
+
+## 3. Visualize Data with a Bar Chart
+
+![Bar Chart](https://github.com/Sufflavus/D3Examples/blob/master/3_BarChart/results/2.png)
