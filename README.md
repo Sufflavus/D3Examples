@@ -11,3 +11,7 @@
 ## 3. Visualize Data with a Bar Chart
 
 ![Bar Chart](https://github.com/Sufflavus/D3Examples/blob/master/3_BarChart/results/2.png)
+
+## 4. Visualize Data with a Scatterplot Graph
+
+![Scatterplot Graph](https://github.com/Sufflavus/D3Examples/blob/master/4_ScatterplotGraph/results/2.png)
