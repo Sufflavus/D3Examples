@@ -15,3 +15,7 @@
 ## 4. Visualize Data with a Scatterplot Graph
 
 ![Scatterplot Graph](https://github.com/Sufflavus/D3Examples/blob/master/4_ScatterplotGraph/results/2.png)
+
+## 5. Visualize Data with a Heat Map
+
+![Heat Map](https://github.com/Sufflavus/D3Examples/blob/master/5_HeatMap/results/1.png)
