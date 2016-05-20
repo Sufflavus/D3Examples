@@ -19,3 +19,7 @@
 ## 5. Visualize Data with a Heat Map
 
 ![Heat Map](https://github.com/Sufflavus/D3Examples/blob/master/5_HeatMap/results/1.png)
+
+## 6. Map Data Across the Globe. Meteorite landing (zoom)
+
+![Meteorite landing](https://github.com/Sufflavus/D3Examples/blob/master/6_MeteoriteLanding/results/1.png)
